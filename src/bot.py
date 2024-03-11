@@ -34,7 +34,7 @@ def run():
                 waiting_for_device = True
 
             # sys.exit(1)
-            time.sleep(5)
+            time.sleep(0.3)
             continue
 
         if waiting_for_device:
@@ -44,12 +44,12 @@ def run():
 
         # Check if the timer has run out
         elapsed_time = time.time() - start_time
-        if game_entered and elapsed_time > time_to_stay_in_game:
-            logging.info("Timer has run out. Forfeit the game.")
-            send_adb_tap(75, 460)
-            time.sleep(1)
-            send_adb_tap(429, 1254)
-            time.sleep(1)
+        # if game_entered and elapsed_time > time_to_stay_in_game:
+        #     logging.info("Timer has run out. Forfeit the game.")
+        #     send_adb_tap(86, 362)
+        #     time.sleep(1)
+        #     send_adb_tap(480,1040 )
+        #     time.sleep(1)
 
         next_action = make_decision(template_images, constants.SCREENSHOT_FILE_NAME)
 
@@ -70,4 +70,4 @@ def run():
             logging.info("Max number of games played. Exit program.")
             sys.exit(1)
 
-        time.sleep(2)
+        time.sleep(0.3)
